@@ -5,14 +5,14 @@ import 'package:firebase_riverpod/services/auth_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/src/provider.dart';
 
-class LoginForm extends StatefulWidget {
-  const LoginForm({Key? key}) : super(key: key);
+class RegisterForm extends StatefulWidget {
+  const RegisterForm({Key? key}) : super(key: key);
 
   @override
-  _LoginFormState createState() => _LoginFormState();
+  _RegisterFormState createState() => _RegisterFormState();
 }
 
-class _LoginFormState extends State<LoginForm> {
+class _RegisterFormState extends State<RegisterForm> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
@@ -22,7 +22,7 @@ class _LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: Text('Registration'),
       ),
       body: Center(
         child: Padding(
@@ -51,33 +51,26 @@ class _LoginFormState extends State<LoginForm> {
                 SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(
-                  onPressed: () async {
-                    User? user = await AuthService().signInWithEmail(
-                        email: _emailController.text,
-                        password: _passwordController.text);
-                    if (user != null) {
-                      // showDialog(
-                      //     context: context,
-                      //     builder: (context) {
-                      //       return Container(
-                      //         child: Text("Login sucessful"),
-                      //       );
-                      //     });
-
-                      context.read(userProvider).state = user;
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return Addpost();
-
-                            // Addpost(email:user.eamil!)
-                          },
-                        ),
-                      );
-                    }
-                  },
-                  child: Text("Login"),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: ElevatedButton(
+                    onPressed: () async {
+                      User? user = await AuthService().registerWithEmail(
+                          email: _emailController.text,
+                          password: _passwordController.text);
+                      if (user != null) {
+                        context.read(userProvider).state = user;
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return Addpost();
+                            },
+                          ),
+                        );
+                      }
+                    },
+                    child: Text("Register"),
+                  ),
                 ),
               ],
             ),

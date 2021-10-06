@@ -17,6 +17,18 @@ class AuthService {
       return null;
     }
   }
+
+ Future<User?> registerWithEmail(
+      {required String email, required String password}) async {
+    try {
+      final response = await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      return response.user;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
 }
 
-// final authserviceProvider = Provider<AuthService>((ref) => AuthService());

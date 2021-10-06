@@ -7,3 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // });
 
 final userProvider = StateProvider<User?>((ref) => null);
+
+final isLoginLoadingProvider = StateProvider<bool>((ref) => false);
+final isRegisterinLoadingProvider = StateProvider<bool>((ref) => false);
+
