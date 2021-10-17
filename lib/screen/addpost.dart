@@ -5,6 +5,8 @@ import 'package:firebase_riverpod/services/post_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'Feedpage.dart';
+
 class Addpost extends StatefulWidget {
   @override
   State<Addpost> createState() => _AddpostState();
@@ -94,11 +96,11 @@ class _AddpostState extends State<Addpost> {
                     _titlecontroller.clear();
                     _descriptioncontroller.clear();
                     _imagecontroller.clear();
-                    ScaffoldMessenger.of(context)
-                        .showSnackBar(SnackBar(content: Text("Sucessfully Submitted")));
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FeedPage));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Sucessfully Submitted")));
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => FeedPage()));
                   },
-
                   child: Text('Submit'))
             ],
           ),
