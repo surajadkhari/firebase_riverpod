@@ -1,6 +1,7 @@
 import 'package:firebase_riverpod/models/post_feed_model.dart';
 import 'package:firebase_riverpod/provider/auth_provider.dart';
 import 'package:firebase_riverpod/services/firestore_services.dart';
+import 'package:firebase_riverpod/services/post_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -88,7 +89,8 @@ class _AddpostState extends State<Addpost> {
                     // var adDUser = FireStore().addUser(
                     //     fullname: _fullnamecontroller.text,
                     //     address: _addresscontroller.text,
-                    //     email: '');
+                    //     email: '')
+                    await PostService().addPost(feed);
                   },
                   child: Text('Submit'))
             ],
