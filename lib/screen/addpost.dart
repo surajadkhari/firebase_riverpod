@@ -85,10 +85,10 @@ class _AddpostState extends State<Addpost> {
               ),
               ElevatedButton(
                   onPressed: () async {
-                    var adDUser = FireStore().addUser(
-                        fullname: _fullnamecontroller.text,
-                        address: _addresscontroller.text,
-                        email: '');
+                    // var adDUser = FireStore().addUser(
+                    //     fullname: _fullnamecontroller.text,
+                    //     address: _addresscontroller.text,
+                    //     email: '');
                   },
                   child: Text('Submit'))
             ],
