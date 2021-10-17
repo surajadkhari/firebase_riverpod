@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_riverpod/addpost.dart';
+import 'package:firebase_riverpod/screen/addpost.dart';
 import 'package:firebase_riverpod/provider/auth_provider.dart';
 import 'package:firebase_riverpod/services/auth_services.dart';
 import 'package:flutter/material.dart';

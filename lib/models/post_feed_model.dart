@@ -7,4 +7,3 @@ class PostFeed {
 }
 
 
- 

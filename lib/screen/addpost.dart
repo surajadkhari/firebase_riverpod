@@ -1,18 +1,27 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_riverpod/models/post_feed_model.dart';
 import 'package:firebase_riverpod/provider/auth_provider.dart';
 import 'package:firebase_riverpod/services/firestore_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class Addpost extends StatelessWidget {
-  // Addpost({required this.email});
+class Addpost extends StatefulWidget {
+  @override
+  State<Addpost> createState() => _AddpostState();
+}
 
-  // final String email;
+class _AddpostState extends State<Addpost> {
+  @override
+  void initState() {
+    var feed = PostFeed();
+    super.initState();
+  }
 
+  PostFeed feed = PostFeed();
   @override
   Widget build(BuildContext context) {
     TextEditingController _fullnamecontroller = TextEditingController();
     TextEditingController _addresscontroller = TextEditingController();
+    TextEditingController _imagecontroller = TextEditingController();
     // CollectionReference info =
     //     FirebaseFirestore.instance.collection('user_info');
 
@@ -27,22 +36,26 @@ class Addpost extends StatelessWidget {
     // }
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Add Post'),
+      ),
       body: Consumer(builder: (context, watch, child) {
         final String? userEmail = watch(userProvider).state!.email;
         return Center(
           child: ListView(
             shrinkWrap: true,
             children: [
-              Center(child: Text(userEmail!)),
+              // Center(child: Text(userEmail!)),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
                   controller: _fullnamecontroller,
                   obscureText: false,
                   decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: "Enter Full Name"),
+                      border: OutlineInputBorder(), hintText: "Enter Title"),
+                  onChanged: (value) {
+                    feed.title = value;
+                  },
                 ),
               ),
               Padding(
@@ -51,7 +64,23 @@ class Addpost extends StatelessWidget {
                   controller: _addresscontroller,
                   obscureText: false,
                   decoration: InputDecoration(
-                      border: OutlineInputBorder(), hintText: "Address"),
+                      border: OutlineInputBorder(),
+                      hintText: "Enter Description"),
+                  onChanged: (value) {
+                    feed.description = value;
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextField(
+                  controller: _addresscontroller,
+                  obscureText: false,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(), hintText: "Image link"),
+                  onChanged: (value) {
+                    feed.image = value;
+                  },
                 ),
               ),
               ElevatedButton(
@@ -59,7 +88,7 @@ class Addpost extends StatelessWidget {
                     var adDUser = FireStore().addUser(
                         fullname: _fullnamecontroller.text,
                         address: _addresscontroller.text,
-                        email: userEmail);
+                        email: '');
                   },
                   child: Text('Submit'))
             ],
