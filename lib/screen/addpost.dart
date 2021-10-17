@@ -20,8 +20,8 @@ class _AddpostState extends State<Addpost> {
   PostFeed feed = PostFeed();
   @override
   Widget build(BuildContext context) {
-    TextEditingController _fullnamecontroller = TextEditingController();
-    TextEditingController _addresscontroller = TextEditingController();
+    TextEditingController _titlecontroller = TextEditingController();
+    TextEditingController _descriptioncontroller = TextEditingController();
     TextEditingController _imagecontroller = TextEditingController();
     // CollectionReference info =
     //     FirebaseFirestore.instance.collection('user_info');
@@ -50,7 +50,7 @@ class _AddpostState extends State<Addpost> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
-                  controller: _fullnamecontroller,
+                  controller: _titlecontroller,
                   obscureText: false,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(), hintText: "Enter Title"),
@@ -62,7 +62,7 @@ class _AddpostState extends State<Addpost> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
-                  controller: _addresscontroller,
+                  controller: _descriptioncontroller,
                   obscureText: false,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
@@ -75,7 +75,7 @@ class _AddpostState extends State<Addpost> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
-                  controller: _addresscontroller,
+                  controller: _descriptioncontroller,
                   obscureText: false,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(), hintText: "Image link"),
@@ -91,6 +91,9 @@ class _AddpostState extends State<Addpost> {
                     //     address: _addresscontroller.text,
                     //     email: '')
                     await PostService().addPost(feed);
+                    _titlecontroller.clear();
+                    _descriptioncontroller.clear();
+                    _imagecontroller.clear();
                   },
                   child: Text('Submit'))
             ],
