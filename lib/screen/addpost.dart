@@ -94,7 +94,11 @@ class _AddpostState extends State<Addpost> {
                     _titlecontroller.clear();
                     _descriptioncontroller.clear();
                     _imagecontroller.clear();
+                    ScaffoldMessenger.of(context)
+                        .showSnackBar(SnackBar(content: Text("Sucessfully Submitted")));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FeedPage));
                   },
+
                   child: Text('Submit'))
             ],
           ),
