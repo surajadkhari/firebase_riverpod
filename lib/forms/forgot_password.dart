@@ -17,13 +17,17 @@ class _ForgotPasswordState extends State<ForgotPassword> {
         title: Text("Reset Password"),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TextFormField(
-            decoration: InputDecoration(
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextFormField(
+              decoration: InputDecoration(
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+              ),
+              controller: _emailController,
             ),
-            controller: _emailController,
           ),
           ElevatedButton(
             onPressed: () {

@@ -60,13 +60,14 @@ class _RegisterFormState extends State<RegisterForm> {
                           password: _passwordController.text);
                       if (user != null) {
                         context.read(userProvider).state = user;
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return Addpost();
-                            },
-                          ),
-                        );
+                        // Navigator.of(context).push(
+                        //   MaterialPageRoute(
+                        //     builder: (context) {
+                        //       return Addpost();
+                        //     },
+                        //   ),
+                        // );
+                        Navigator.pop(context);
                       }
                     },
                     child: Text("Register"),
