@@ -1,5 +1,6 @@
 import 'package:firebase_riverpod/models/post_feed_model.dart';
 import 'package:firebase_riverpod/provider/auth_provider.dart';
+import 'package:firebase_riverpod/provider/feed_provider.dart';
 import 'package:firebase_riverpod/services/firestore_services.dart';
 import 'package:firebase_riverpod/services/post_service.dart';
 import 'package:flutter/material.dart';
@@ -77,7 +78,7 @@ class _AddpostState extends State<Addpost> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
-                  controller: _descriptioncontroller,
+                  controller: _imagecontroller,
                   obscureText: false,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(), hintText: "Image link"),
@@ -92,15 +93,17 @@ class _AddpostState extends State<Addpost> {
                     //     fullname: _fullnamecontroller.text,
                     //     address: _addresscontroller.text,
                     //     email: '')
-                    // await PostService().addPost(feed); Direclty from Services below using Provider
-                    await context.read(provider);
+                    // Direclty from Services below using Provider
+                    //await PostService().addPost(feed);
+                    //Using Provider
+                    await context.read(addFeedProvider).addFeed(feed);
                     _titlecontroller.clear();
                     _descriptioncontroller.clear();
                     _imagecontroller.clear();
                     ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text("Sucessfully Submitted")));
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => FeedPage()));
+                    // Navigator.of(context).push(
+                    //     MaterialPageRoute(builder: (context) => FeedPage()));
                   },
                   child: Text('Submit'))
             ],
