@@ -49,7 +49,7 @@ class _AddpostState extends State<Addpost> {
           child: ListView(
             shrinkWrap: true,
             children: [
-              // Center(child: Text(userEmail!)),
+              Center(child: Text(userEmail!)),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
