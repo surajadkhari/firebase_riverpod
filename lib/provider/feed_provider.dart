@@ -11,11 +11,13 @@ class AddFeedNotifier extends ChangeNotifier {
   addFeed(PostFeed feed) async {
     try {
       this.isLoading = true;
+      notifyListeners();
       await PostService().addPost(feed);
     } catch (error) {
       this.error = error.toString();
     } finally {
       this.isLoading = false;
+      notifyListeners();
     }
   }
 }
