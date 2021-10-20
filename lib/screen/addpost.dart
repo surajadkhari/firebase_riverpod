@@ -87,25 +87,35 @@ class _AddpostState extends State<Addpost> {
                   },
                 ),
               ),
-              ElevatedButton(
-                  onPressed: () async {
-                    // var adDUser = FireStore().addUser(
-                    //     fullname: _fullnamecontroller.text,
-                    //     address: _addresscontroller.text,
-                    //     email: '')
-                    // Direclty from Services below using Provider
-                    //await PostService().addPost(feed);
-                    //Using Provider
-                    await context.read(addFeedProvider).addFeed(feed);
-                    _titlecontroller.clear();
-                    _descriptioncontroller.clear();
-                    _imagecontroller.clear();
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text("Sucessfully Submitted")));
-                    // Navigator.of(context).push(
-                    //     MaterialPageRoute(builder: (context) => FeedPage()));
-                  },
-                  child: Text('Submit'))
+              Consumer(builder: (context, watch, child) {
+                var indicator = watch(addFeedProvider).isLoading;
+                if (indicator) {
+                  return CircularProgressIndicator();
+                } else {
+                  return Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: ElevatedButton(
+                        onPressed: () async {
+                          // var adDUser = FireStore().addUser(
+                          //     fullname: _fullnamecontroller.text,
+                          //     address: _addresscontroller.text,
+                          //     email: '')
+                          // Direclty from Services below using Provider
+                          //await PostService().addPost(feed);
+                          //Using Provider
+                          await context.read(addFeedProvider).addFeed(feed);
+                          _titlecontroller.clear();
+                          _descriptioncontroller.clear();
+                          _imagecontroller.clear();
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text("Sucessfully Submitted")));
+                          // Navigator.of(context).push(
+                          //     MaterialPageRoute(builder: (context) => FeedPage()));
+                        },
+                        child: Text('Submit')),
+                  );
+                }
+              })
             ],
           ),
         );
