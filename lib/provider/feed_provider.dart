@@ -2,6 +2,7 @@ import 'package:firebase_riverpod/models/post_feed_model.dart';
 import 'package:firebase_riverpod/screen/addpost.dart';
 import 'package:firebase_riverpod/services/post_service.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AddFeedNotifier extends ChangeNotifier {
   bool isLoading = false;
@@ -18,3 +19,6 @@ class AddFeedNotifier extends ChangeNotifier {
     }
   }
 }
+
+final addFeedProvider =
+    ChangeNotifierProvider<AddFeedNotifier>((ref) => AddFeedNotifier());

@@ -92,7 +92,8 @@ class _AddpostState extends State<Addpost> {
                     //     fullname: _fullnamecontroller.text,
                     //     address: _addresscontroller.text,
                     //     email: '')
-                    await PostService().addPost(feed);
+                    // await PostService().addPost(feed); Direclty from Services below using Provider
+                    await context.read(provider);
                     _titlecontroller.clear();
                     _descriptioncontroller.clear();
                     _imagecontroller.clear();
