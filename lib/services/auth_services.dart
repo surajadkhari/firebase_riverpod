@@ -5,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-
   Future<User?> signInWithEmail(
       {required String email, required String password}) async {
     try {
@@ -18,7 +17,7 @@ class AuthService {
     }
   }
 
- Future<User?> registerWithEmail(
+  Future<User?> registerWithEmail(
       {required String email, required String password}) async {
     try {
       final response = await _auth.createUserWithEmailAndPassword(
@@ -30,5 +29,12 @@ class AuthService {
     }
   }
 
+  passwordReset({required String email}) async {
+    try {
+      final response = await _auth.sendPasswordResetEmail(email: email);
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 }
-

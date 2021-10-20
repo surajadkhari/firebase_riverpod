@@ -1,3 +1,4 @@
+import 'package:firebase_riverpod/services/auth_services.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -25,7 +26,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             controller: _emailController,
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              AuthService().passwordReset(email: _emailController.text);
+            },
             child: Text("Sent Password Reset Email"),
           )
         ],
