@@ -31,6 +31,20 @@ class _FormFieldSampleState extends State<FormFieldSample> {
                 bool isobsCure = watch(passwordObscureProvider);
                 print(isobsCure);
                 return TextFormField(
+                  // validator: (value) {
+                  //   if (value == null || value.isEmpty) {
+                  //     return "Please Enter Password";
+                  //   } else if (value.length < 6) {
+                  //     return 'Password must greater>6 letter';
+                  //   } else {
+                  //     return null;
+                  //   }
+                  // },
+                  validator: (val) {
+                    return val!.length < 6
+                        ? 'Enter A Password Longer Than 6 Charchters'
+                        : null;
+                  },
                   obscureText: isobsCure,
                   keyboardType: TextInputType.visiblePassword,
                   decoration: InputDecoration(
