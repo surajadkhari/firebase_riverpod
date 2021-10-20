@@ -5,11 +5,11 @@ class PostService {
   FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
   Future addPost(PostFeed feed) {
     CollectionReference _feedReference =
-        FirebaseFirestore.instance.collection('user_info');
+        FirebaseFirestore.instance.collection('post');
     var PostData = {
-      'title':feed.title,
-      'image':feed.image,
-      'decription':feed.description
+      'title': feed.title,
+      'image': feed.image,
+      'decription': feed.description
     };
     return _feedReference.add(PostData);
   }

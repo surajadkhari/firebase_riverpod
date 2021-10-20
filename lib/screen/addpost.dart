@@ -77,7 +77,7 @@ class _AddpostState extends State<Addpost> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
-                  controller: _descriptioncontroller,
+                  controller: _imagecontroller,
                   obscureText: false,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(), hintText: "Image link"),
@@ -86,6 +86,7 @@ class _AddpostState extends State<Addpost> {
                   },
                 ),
               ),
+
               ElevatedButton(
                   onPressed: () async {
                     // var adDUser = FireStore().addUser(
@@ -101,7 +102,7 @@ class _AddpostState extends State<Addpost> {
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => FeedPage()));
                   },
-                  child: Text('Submit'))
+                  child: Text('Submit')),
             ],
           ),
         );
