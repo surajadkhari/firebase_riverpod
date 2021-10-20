@@ -31,10 +31,13 @@ class _ForgotPasswordState extends State<ForgotPassword> {
           ),
           ElevatedButton(
             onPressed: () async {
-              await AuthService().passwordReset(email: _emailController.text);
+              String message = '';
+              message = await AuthService()
+                  .passwordReset(email: _emailController.text);
               _emailController.clear();
+
               ScaffoldMessenger.of(context)
-                  .showSnackBar(SnackBar(content: Text("Reset link is sent")));
+                  .showSnackBar(SnackBar(content: Text(message)));
               Navigator.of(context).pop();
             },
             child: Text("Sent Password Reset Email"),

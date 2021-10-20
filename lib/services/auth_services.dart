@@ -29,12 +29,14 @@ class AuthService {
     }
   }
 
-  passwordReset({required String email}) async {
+  Future<String> passwordReset({required String email}) async {
+    String message = '';
     try {
-      final response = await _auth.sendPasswordResetEmail(email: email);
+      await _auth.sendPasswordResetEmail(email: email);
+      message = 'Reset Link is sent';
     } catch (e) {
-      print(e.toString());
-      return null;
+      message = e.toString();
     }
+    return message;
   }
 }
