@@ -28,6 +28,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
           ElevatedButton(
             onPressed: () {
               AuthService().passwordReset(email: _emailController.text);
+              Navigator.of(context).pop();
             },
             child: Text("Sent Password Reset Email"),
           )

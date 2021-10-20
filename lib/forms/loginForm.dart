@@ -79,6 +79,7 @@ class _LoginFormState extends State<LoginForm> {
                   },
                   child: Text("Login"),
                 ),
+                ElevatedButton(onPressed: (){}, child: Text("Reset Password"))
               ],
             ),
           ),
