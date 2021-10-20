@@ -90,7 +90,7 @@ class _AddpostState extends State<Addpost> {
               Consumer(builder: (context, watch, child) {
                 var indicator = watch(addFeedProvider).isLoading;
                 if (indicator) {
-                  return CircularProgressIndicator();
+                  return Center(child: LinearProgressIndicator());
                 } else {
                   return Padding(
                     padding: const EdgeInsets.all(16.0),
@@ -100,8 +100,7 @@ class _AddpostState extends State<Addpost> {
                           //     fullname: _fullnamecontroller.text,
                           //     address: _addresscontroller.text,
                           //     email: '')
-                          // Direclty from Services below using Provider
-                          //await PostService().addPost(feed);
+                          // Direclty from Services below using Provider -->await PostService().addPost(feed);
                           //Using Provider
                           await context.read(addFeedProvider).addFeed(feed);
                           _titlecontroller.clear();

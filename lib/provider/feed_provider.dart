@@ -8,7 +8,7 @@ class AddFeedNotifier extends ChangeNotifier {
   bool isLoading = false;
   String? error;
 
-  addFeed(PostFeed feed) async {
+  Future<void> addFeed(PostFeed feed) async {
     try {
       this.isLoading = true;
       notifyListeners();
