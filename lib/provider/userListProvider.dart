@@ -2,7 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class UserNotifier extends StateNotifier<List<User>> {
-  UserNotifier(state) : super(state);
+  UserNotifier() : super([]);
+
+  loadUsers()async{
+    
+
+  }
 }
 
 class User {
