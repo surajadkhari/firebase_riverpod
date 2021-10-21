@@ -6,6 +6,7 @@ class UserNotifier extends StateNotifier<List<Users>> {
     loadUsers();
   }
 
+//--Direct Service function bara state ko value update gareko
   // loadUsers() async {
   //   List<Users> userdataList = [];
   //   var endPoint = 'https://reqres.in/api/users?page=2';
@@ -23,6 +24,9 @@ class UserNotifier extends StateNotifier<List<Users>> {
   //   }
   //   state = userdataList;
   // }
+
+//--ServiceAPi function bara state ko value update gareko
+
   loadUsers() async {
     //ServiceApi ko data fecth gareko
     state = await Apiservice().loadjson();
