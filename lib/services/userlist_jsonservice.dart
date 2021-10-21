@@ -1,7 +1,7 @@
 import 'package:firebase_riverpod/import_packages.dart/import.dart';
 
 class Apiservice {
-  loadjson() async {
+  Future<dynamic> loadjson() async {
     List<Users> userdataList = [];
     var endPoint = 'https://reqres.in/api/users?page=2';
     var respond = await get(Uri.parse(endPoint));
