@@ -1,9 +1,4 @@
-import 'dart:convert';
-
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_riverpod/models/usermodel.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:http/http.dart';
+import 'package:firebase_riverpod/import_packages.dart/import.dart';
 
 class UserNotifier extends StateNotifier<List<Users>> {
   UserNotifier() : super([]);
