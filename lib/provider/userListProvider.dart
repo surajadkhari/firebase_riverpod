@@ -1,12 +1,17 @@
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:http/http.dart';
 
 class UserNotifier extends StateNotifier<List<User>> {
   UserNotifier() : super([]);
 
-  loadUsers()async{
-    
-
+  loadUsers() async {
+    var endPoint = 'https://reqres.in/api/users?page=2';
+    var respond = await get(Uri.parse(endPoint));
+    var userData = jsonDecode(respond.body);
+    print(userData);
   }
 }
 
