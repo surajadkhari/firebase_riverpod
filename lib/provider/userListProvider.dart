@@ -26,3 +26,6 @@ class UserNotifier extends StateNotifier<List<Users>> {
     state = userdataList;
   }
 }
+
+final userListProvider =
+    StateNotifierProvider<UserNotifier, List<Users>>((ref) => UserNotifier());
