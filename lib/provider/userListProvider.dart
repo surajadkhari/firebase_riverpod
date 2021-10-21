@@ -1,7 +1,9 @@
 import 'package:firebase_riverpod/import_packages.dart/import.dart';
 
 class UserNotifier extends StateNotifier<List<Users>> {
-  UserNotifier() : super([]);
+  UserNotifier() : super([]) {
+    loadUsers();
+  }
 
   loadUsers() async {
     List<Users> userdataList = [];
