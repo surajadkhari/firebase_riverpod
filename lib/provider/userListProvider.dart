@@ -9,10 +9,10 @@ class UserNotifier extends StateNotifier<List<Users>> {
     List<Users> userdataList = [];
     var endPoint = 'https://reqres.in/api/users?page=2';
     var respond = await get(Uri.parse(endPoint));
-    var jsonData = jsonDecode(respond.body)['data'];
+    List jsonData = jsonDecode(respond.body)['data'];
 
     //For each--Mapping
-    for (int index = 0; index < jsonData.lenght; index++) {
+    for (int index = 0; index < jsonData.length; index++) {
       userdataList.add(Users(
           id: jsonData[index]['id'],
           email: jsonData[index]['email'],
