@@ -1,6 +1,7 @@
 import 'package:firebase_riverpod/import_packages.dart/import.dart';
 
 class Apiservice {
+  //loadjson function --chai Future type ko vayo that return value in future and Future ko chai List<Users> or dynamic value return garcha
   Future<dynamic> loadjson() async {
     List<Users> userdataList = [];
     var endPoint = 'https://reqres.in/api/users?page=2';
