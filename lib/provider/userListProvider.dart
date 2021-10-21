@@ -24,6 +24,7 @@ class UserNotifier extends StateNotifier<List<Users>> {
   //   state = userdataList;
   // }
   loadUsers() async {
+    //ServiceApi ko data fecth gareko
     state = await Apiservice().loadjson();
   }
 }
