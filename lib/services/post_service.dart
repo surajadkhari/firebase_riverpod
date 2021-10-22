@@ -18,10 +18,10 @@ class PostService {
 
   //Method to Fetch data
 
-  Future fetchPost() async {
+  Future<List<PostFeed>> fetchPost() async {
     //create refrence
     CollectionReference _fetchReference = _firebaseFirestore.collection('post');
     var _querySnaphot = await _fetchReference.get();
-    return _querySnaphot.docs.map((e) => PostFeed.fromJson(e));
+    return _querySnaphot.docs.map((e) => PostFeed.fromJson(e)).toList();
   }
 }

@@ -6,7 +6,7 @@ import 'package:firebase_riverpod/services/post_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'Feedpage.dart';
+import 'feedpage.dart';
 
 class Addpost extends StatefulWidget {
   @override
