@@ -1,5 +1,7 @@
 import 'package:firebase_riverpod/import_packages.dart/import.dart';
 
+import 'screen/user_detailpage.dart';
+
 void main() async {
   //ensure binding
 
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Userlistpage(),
+      home: DetailPage(),
     );
   }
 }
