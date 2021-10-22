@@ -3,6 +3,8 @@ import 'package:firebase_riverpod/models/post_feed_model.dart';
 
 class PostService {
   FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
+
+  //Method to Pass data to collection post
   Future addPost(PostFeed feed) {
     CollectionReference _feedReference =
         FirebaseFirestore.instance.collection('post');
@@ -14,10 +16,12 @@ class PostService {
     return _feedReference.add(PostData);
   }
 
-  Future<List<PostFeed>> fetchPost() async {
+  //Method to Fetch data
+
+  Future fetchPost() async {
     //create refrence
     CollectionReference _fetchReference = _firebaseFirestore.collection('post');
-    var _documentSnapshot = await _fetchReference.get();
-    return _documentSnapshot.docs.map((e) => null)
+    var _querySnaphot = await _fetchReference.get();
+    return _querySnaphot.docs.map((e) => PostFeed.fromJson(e));
   }
 }
