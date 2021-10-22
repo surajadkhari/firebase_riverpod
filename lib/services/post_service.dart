@@ -13,4 +13,8 @@ class PostService {
     };
     return _feedReference.add(PostData);
   }
+
+  Future<List<PostFeed>> fetchPost() {
+    return 
+  }
 }
