@@ -11,15 +11,21 @@ class UserNotifier extends StateNotifier<List<Users>> {
     var respond = await get(Uri.parse(endPoint));
     List jsonData = jsonDecode(respond.body)['data'];
 
-    //For each--Mapping
-    for (int index = 0; index < jsonData.length; index++) {
-      userdataList.add(Users(
-          id: jsonData[index]['id'],
-          email: jsonData[index]['email'],
-          first_name: jsonData[index]['first_name'],
-          last_name: jsonData[index]['last_name'],
-          avatar: jsonData[index]['avatar']));
-    }
+    //Using loop--Mapping
+    // for (int index = 0; index < jsonData.length; index++) {
+    //   userdataList.add(Users(
+    //       id: jsonData[index]['id'],
+    //       email: jsonData[index]['email'],
+    //       first_name: jsonData[index]['first_name'],
+    //       last_name: jsonData[index]['last_name'],
+    //       avatar: jsonData[index]['avatar']));
+    // }
+
+    //Foreach method
+    jsonData.forEach((element) {
+      userdataList.add(Users.fromJson(element));
+    });
+
     state = userdataList;
   }
 }

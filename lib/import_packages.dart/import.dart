@@ -1,4 +1,4 @@
-export 'package:firebase_riverpod/provider/userListProvider.dart';
+export 'package:firebase_riverpod/provider/userlist_provider.dart';
 export 'package:flutter/material.dart';
 export 'package:flutter_riverpod/flutter_riverpod.dart';
 
