@@ -24,3 +24,7 @@ class AddFeedNotifier extends ChangeNotifier {
 
 final addFeedProvider =
     ChangeNotifierProvider<AddFeedNotifier>((ref) => AddFeedNotifier());
+
+
+//fetchFeed Provider
+final fetchFeedProvider = FutureProvider((ref) => PostService().fetchPost());
