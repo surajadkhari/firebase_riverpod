@@ -7,7 +7,7 @@ class PostFeed {
 
   PostFeed.fromJson(Map<String, dynamic> data) {
     this.title = data['title']??" There is no title";
-    this.description = data['description'];
+    this.description = data['description']==null?"There is no description":data['description'];
     this.image = data['image'];
   }
 }
