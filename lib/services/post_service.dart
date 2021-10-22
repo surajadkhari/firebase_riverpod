@@ -14,7 +14,10 @@ class PostService {
     return _feedReference.add(PostData);
   }
 
-  Future<List<PostFeed>> fetchPost() {
-    return 
+  Future<List<PostFeed>> fetchPost() async {
+    //create refrence
+    CollectionReference _fetchReference = _firebaseFirestore.collection('post');
+    var _documentSnapshot = await _fetchReference.get();
+    return _documentSnapshot.docs.map((e) => null)
   }
 }
