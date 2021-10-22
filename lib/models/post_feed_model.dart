@@ -8,8 +8,11 @@ class PostFeed {
   PostFeed({this.title, this.description, this.image});
 
   PostFeed.fromJson(QueryDocumentSnapshot data) {
-    this.title = data['title']??" There is no title";
-    this.description = data['description']==null?"There is no description":data['description'];
-    this.image = data['image']??"https://www.name.edu.np/wp-content/uploads/2020/06/placeholder.png";
+    this.title = data['title'] ?? " There is no title";
+    this.description = data['description'] == null
+        ? "There is no description"
+        : data['description'];
+    this.image = data['image'] ??
+        "https://www.name.edu.np/wp-content/uploads/2020/06/placeholder.png";
   }
 }

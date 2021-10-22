@@ -22,6 +22,18 @@ class PostService {
     //create refrence
     CollectionReference _fetchReference = _firebaseFirestore.collection('post');
     var _querySnaphot = await _fetchReference.get();
+
     return _querySnaphot.docs.map((e) => PostFeed.fromJson(e)).toList();
+
+//2 method
+    // List<PostFeed> feedlist = [];
+    // for (int i = 0; i < _querySnaphot.docs.length; i++) {
+    //   feedlist.add(PostFeed(
+    //     title: _querySnaphot.docs[i]['title'],
+    //     description: _querySnaphot.docs[i]['decription'],
+    //     image: _querySnaphot.docs[i]['image'],
+    //   ));
+    // }
+    // return feedlist;
   }
 }

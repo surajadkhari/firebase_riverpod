@@ -15,13 +15,29 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("Visit nepal"),
+        centerTitle: true,
+      ),
       body: Container(
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Container(
+              height: 180,
+              width: 300,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                          "https://myrepublica.nagariknetwork.com/uploads/media/VNYRealLogo_20200103115449.jpg"))),
+            ),
+            SizedBox(
+              height: 10,
+            ),
             Consumer(builder: (context, watch, child) {
               bool _isRegister = watch(isRegisterinLoadingProvider).state;
               return SizedBox(
