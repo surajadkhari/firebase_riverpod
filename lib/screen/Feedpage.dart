@@ -41,7 +41,7 @@ class _FeedPageState extends State<FeedPage> {
                     );
                   });
             },
-            loading: () => CircularProgressIndicator(),
+            loading: () => Center(child: CircularProgressIndicator()),
             error: (error, stackTrace) {
               return Text(error.toString());
             });

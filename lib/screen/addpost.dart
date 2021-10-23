@@ -114,7 +114,13 @@ class _AddpostState extends State<Addpost> {
                         child: Text('Submit')),
                   );
                 }
-              })
+              }),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => FeedPage()));
+                  },
+                  child: Text("See all Post"))
             ],
           ),
         );
